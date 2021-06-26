@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PuzzleBoardComponent } from './puzzle-board/puzzle-board.component';
 import { ItemComponent } from './item/item.component';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { ItemComponent } from './item/item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
