@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 /**
  * The PuzzleBoard component is the backboard that holds various items.
  * 
- * It contains a limited number of slots and 
+ * It contains a limited number of slots, that can hold one item at a time.
  */
 export class PuzzleBoardComponent implements OnInit {
 

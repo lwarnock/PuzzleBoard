@@ -1,5 +1,5 @@
 .Item {
-    background-image: url("assets/Item.png");
+    background-image: url("../../assets/Item.png");
     background-repeat: no-repeat;
     background-size: cover;
 }

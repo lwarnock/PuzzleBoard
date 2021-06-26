@@ -1,5 +1,14 @@
-.PuzzleBoard {
-    background-image: url("assets/Board.png");
-    background-repeat: no-repeat;
+.puzzleBoard {
+    /* background-image: url("../../assets/Board.png");
+    background-repeat: no-repeat; */
     background-size: cover;
+    height: 40vh;
+    width: 80vw;
+    margin: 2vh 10vw;
+    z-index: 0;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
 }
