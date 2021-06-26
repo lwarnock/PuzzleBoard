@@ -1,0 +1,5 @@
+.PuzzleBoard {
+    background-image: url("assets/Board.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
