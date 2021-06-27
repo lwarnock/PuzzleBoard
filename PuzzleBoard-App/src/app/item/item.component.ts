@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PuzzleBoardComponent } from '../puzzle-board/puzzle-board.component';
 
 @Component({
   selector: 'app-item',
@@ -13,9 +14,14 @@ import { Component, OnInit } from '@angular/core';
  */
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit(): void {
+
   }
+
+  public value: number = Math.floor(Math.random() * 10)
 
 }

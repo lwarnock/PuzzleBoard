@@ -3,6 +3,9 @@
     height: 2vh;
     width: 2vw;
 
+    /* Positioning data */
+    float:left;
+
     /* Background image settings */
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList} from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ItemComponent } from '../item/item.component';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 
 @Component({
   selector: 'app-puzzle-board',
@@ -15,24 +16,49 @@ import { ItemComponent } from '../item/item.component';
  */
 export class PuzzleBoardComponent implements OnInit {
 
-  private items: ItemComponent[] = [
-    new ItemComponent(),
-    new ItemComponent(),
-    new ItemComponent(),
+  public items: ItemComponent[] = [
+
   ]
 
-  constructor() { }
+  heldItems = 3
+  maxHeldItems = 5
+
+  constructor() {}
 
   ngOnInit(): void {
+    for(let i = 0; i < this.heldItems; i++)
+      this.items.push(new ItemComponent)
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) 
-    {
+  
+  // drop(event: CdkDragDrop<any>) {
+
+
+  //   if (event.previousContainer === event.container) 
+  //   {
+  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  //     console.log(event.container)
+  //   } 
+  //   else 
+  //   {
+  //     transferArrayItem(event.previousContainer.data,
+  //                       event.container.data,
+  //                       event.previousIndex,
+  //                       event.currentIndex);
+  //   }
+  // }
+
+  colour = [
+    'red',
+    'blue',
+    'green'
+  ];
+
+  drop(event: CdkDragDrop<any>) {
+    console.info(this.items.length)
+    if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } 
-    else 
-    {
+    } else {
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,

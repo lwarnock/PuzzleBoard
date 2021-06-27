@@ -1,7 +1,10 @@
 <div 
     cdkDropList
-    #itemList = "cdkDropList"
+    [cdkDropListData]="items"
+    cdkDropListOrientation="horizontal"
     class=puzzleBoard
-    cdkDropListDropped="drop($event)" >
-    <div cdkDrag><app-item></app-item></div>
+    (cdkDropListDropped) ="drop($event)" >
+    <!-- <app-item ></app-item> -->
+    <!-- <img src="../../assets/Item.png" class="image" alt="" cdkDrag *ngFor="let item of [].constructor(heldItems);"/> -->
+    <app-item *ngFor="let i of items" cdkDrag></app-item>
 </div>
