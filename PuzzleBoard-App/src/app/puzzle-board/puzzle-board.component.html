@@ -1,3 +1,7 @@
-<div class=puzzleBoard cdkDrag>
-    <img src="../../assets/Board.png" class="image" alt="" />
+<div 
+    cdkDropList
+    #itemList = "cdkDropList"
+    class=puzzleBoard
+    cdkDropListDropped="drop($event)" >
+    <div cdkDrag><app-item></app-item></div>
 </div>

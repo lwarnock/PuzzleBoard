@@ -1,14 +1,28 @@
 .puzzleBoard {
-    /* background-image: url("../../assets/Board.png");
-    background-repeat: no-repeat; */
-    background-size: cover;
+    /* Size metrics */
     height: 40vh;
     width: 80vw;
-    margin: 2vh 10vw;
-    z-index: 0;
+    margin: 5vh 10vw;
+
+    /* Border Radius section */
+    border-top-left-radius: 4% 8%;
+    border-top-right-radius: 4% 8%;
+    border-bottom-left-radius: 4% 8%;
+    border-bottom-right-radius: 4% 8%;
+
+    /* Border Management - Likely going to contain media queries */
+    border: solid darkblue;
+    border-top-width: 1vh;
+    border-bottom-width: 1vh;
+    border-left-width: 1vw;
+    border-right-width: 1vw;
+
+    /* Background image settings */
+    overflow: hidden;
+    background-image: url("../../assets/Board.png");
+    background-size: cover;
 }
 
-.image {
-    height: 100%;
-    width: 100%;
+.dragElement {
+    position: absolute;
 }
