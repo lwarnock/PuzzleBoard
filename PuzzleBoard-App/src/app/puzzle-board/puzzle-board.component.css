@@ -21,6 +21,8 @@
     overflow: hidden;
     background-image: url("../../assets/Board.png");
     background-size: cover;
+
+    text-align: justify;
 }
 
 .dragElement {

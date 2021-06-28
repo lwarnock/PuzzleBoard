@@ -27,26 +27,26 @@ export class PuzzleBoardComponent implements OnInit {
 
   ngOnInit(): void {
     for(let i = 0; i < this.heldItems; i++)
+    {
+      //Filling array with duds, will remove once actual objects are generated. Wanting this system to run on heldItems but looking for a way to update this accurately
       this.items.push(new ItemComponent)
+      this.items[i].spacingParameter(this.maxHeldItems)
+    }
+      
   }
 
-  
-  // drop(event: CdkDragDrop<any>) {
+  @ViewChildren(ItemComponent) query!: QueryList<ItemComponent>;
 
+  ngAfterViewInit(): void {
+    
+    while(this.items.length > 0)
+      this.items.pop()
 
-  //   if (event.previousContainer === event.container) 
-  //   {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //     console.log(event.container)
-  //   } 
-  //   else 
-  //   {
-  //     transferArrayItem(event.previousContainer.data,
-  //                       event.container.data,
-  //                       event.previousIndex,
-  //                       event.currentIndex);
-  //   }
-  // }
+    this.query.forEach(element => {
+      this.items.push(element)
+    });
+  }
+
 
   colour = [
     'red',

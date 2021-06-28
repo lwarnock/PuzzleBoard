@@ -14,14 +14,31 @@ import { PuzzleBoardComponent } from '../puzzle-board/puzzle-board.component';
  */
 export class ItemComponent implements OnInit {
 
+  private distance: number = 0
+
   constructor() {
 
-   }
+  }
 
   ngOnInit(): void {
 
   }
 
-  public value: number = Math.floor(Math.random() * 10)
+  public spacingParameter(distance: number)
+  {
+    this.distance = distance
+  }
 
+  public calcDistance()
+  {
+    let boardWidth = 80
+    let itemWidth = 10
+    let dist = 0
+
+    
+    dist = (80 - (10 * 5)) / (5 + 1)
+
+    console.info(dist)
+    return dist/2
+  }
 }

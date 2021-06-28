@@ -1,7 +1,7 @@
 .Item {
     /* Size metrics - Will need media queries to generate as square elements to avoid stretching images*/
-    height: 2vh;
-    width: 2vw;
+    height: 10vh;
+    width: 10vw;
 
     /* Positioning data */
     float:left;
@@ -9,4 +9,9 @@
     /* Background image settings */
     background-repeat: no-repeat;
     background-size: cover;
+
+    padding-top: 15vh;
+
+    margin-left: 3vw;
+    margin-right:3vw;
 }
