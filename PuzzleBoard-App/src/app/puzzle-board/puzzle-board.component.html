@@ -4,5 +4,8 @@
     cdkDropListOrientation="horizontal"
     class=puzzleBoard
     (cdkDropListDropped) ="drop($event)" >
-    <app-item #item *ngFor="let i of items"></app-item>
+    <!-- <ng-container *ngFor="let i of items" >
+        <ng-container *ngTemplateOutlet=i.template></ng-container>
+    </ng-container> -->
+    <img src="../../assets/Item.png" class="Item" alt="" *ngFor="let i of items" [ngStyle]="{'margin-left.vw': calcDistance(), 'margin-right.vw': calcDistance()}" cdkDrag/>
 </div>

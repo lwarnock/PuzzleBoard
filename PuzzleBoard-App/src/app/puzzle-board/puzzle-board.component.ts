@@ -20,49 +20,42 @@ export class PuzzleBoardComponent implements OnInit {
 
   ]
 
-  heldItems = 3
+  initialHeldItems = 3
   maxHeldItems = 5
 
   constructor() {}
 
   ngOnInit(): void {
-    for(let i = 0; i < this.heldItems; i++)
+    for(let i = 0; i < this.initialHeldItems; i++)
     {
-      //Filling array with duds, will remove once actual objects are generated. Wanting this system to run on heldItems but looking for a way to update this accurately
-      this.items.push(new ItemComponent)
-      this.items[i].spacingParameter(this.maxHeldItems)
+      this.items.push(new ItemComponent())
     }
-      
   }
 
-  @ViewChildren(ItemComponent) query!: QueryList<ItemComponent>;
+  public calcDistance()
+  {
+    let boardWidth = 80
+    let itemWidth = 10
+    let dist = 0
 
-  ngAfterViewInit(): void {
     
-    while(this.items.length > 0)
-      this.items.pop()
+    dist = (boardWidth - (itemWidth * this.items.length)) / (this.items.length)
 
-    this.query.forEach(element => {
-      this.items.push(element)
-    });
+    console.info(dist/2)
+    return dist/2
   }
 
-
-  colour = [
-    'red',
-    'blue',
-    'green'
-  ];
-
-  drop(event: CdkDragDrop<any>) {
-    console.info(this.items.length)
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+  drop(event: CdkDragDrop<ItemComponent[]>) {
+    if(this.items.length < this.maxHeldItems)
+    {
+      if (event.previousContainer === event.container) {
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      } else {
+        transferArrayItem(event.previousContainer.data,
+                          event.container.data,
+                          event.previousIndex,
+                          event.currentIndex);
+      }
     }
   }
 }

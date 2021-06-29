@@ -21,8 +21,6 @@
     overflow: hidden;
     background-image: url("../../assets/Board.png");
     background-size: cover;
-
-    text-align: justify;
 }
 
 .dragElement {
@@ -53,24 +51,20 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
 
-  .red {
-    width: 100px;
-    height:100px; 
-    background-color:red;float:left;
-  }
+  .Item {
+    /* Size metrics - Will need media queries to generate as square elements to avoid stretching images*/
+    height: 10vh;
+    width: 10vw;
 
-  
-  .blue {
-    width: 100px;
-    height:100px; 
-    background-color:blue;
+    /* Positioning data */
     float:left;
-  }
 
-  
-  .green {
-    width: 100px;
-    height:100px; 
-    background-color:green;
-    float:left;
-  }
+    /* Background image settings */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding-top: 15vh;
+
+    /* margin-left: 3vw;
+    margin-right:3vw; */
+}
