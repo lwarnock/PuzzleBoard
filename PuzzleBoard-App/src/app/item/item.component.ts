@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { PuzzleBoardComponent } from '../puzzle-board/puzzle-board.component';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-item',

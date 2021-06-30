@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChildren, QueryList} from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { ItemComponent } from '../item/item.component';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+
 
 @Component({
   selector: 'app-puzzle-board',
@@ -16,7 +15,11 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
  */
 export class PuzzleBoardComponent implements OnInit {
 
-  public items: ItemComponent[] = [
+  @Input()
+  public settings: any
+  @Output()
+
+  public items: Item[] = [
 
   ]
 
@@ -26,9 +29,10 @@ export class PuzzleBoardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.initialHeldItems = this.settings.Items[0].amount
     for(let i = 0; i < this.initialHeldItems; i++)
     {
-      this.items.push(new ItemComponent())
+      this.items.push(new Item(this.items))
     }
   }
 
@@ -45,7 +49,7 @@ export class PuzzleBoardComponent implements OnInit {
     return dist/2
   }
 
-  drop(event: CdkDragDrop<ItemComponent[]>) {
+  drop(event: CdkDragDrop<Item[]>) {
     if(this.items.length < this.maxHeldItems)
     {
       if (event.previousContainer === event.container) {
@@ -59,3 +63,18 @@ export class PuzzleBoardComponent implements OnInit {
     }
   }
 }
+
+/**
+ * The Item component is the object held in PuzzleBoard slots.
+ * 
+ * These items are their own class as they could serve a purpose outside of just being holder items.
+ * If this was further built to which items have more purpose, this class would hold any values and functions relating to said purpose.
+ */
+  class Item
+  {
+    private parentArray: Item[]
+
+    constructor(parentArray: Item[]) {
+      this.parentArray = parentArray
+    }
+  }

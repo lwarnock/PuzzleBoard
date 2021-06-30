@@ -1,5 +1,8 @@
 <section cdkDropListGroup>
-    <app-puzzle-board></app-puzzle-board>
-    <app-puzzle-board></app-puzzle-board>
+    <ng-container *ngFor="let item of boards;let i=index">
+		<app-puzzle-board [settings] = item
+        
+        ></app-puzzle-board>
+	</ng-container>
 </section>
 <router-outlet></router-outlet>
