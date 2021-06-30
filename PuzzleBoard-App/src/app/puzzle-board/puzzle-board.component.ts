@@ -17,19 +17,37 @@ export class PuzzleBoardComponent implements OnInit {
 
   @Input()
   public settings: any
-  @Output()
+
+  imageUrl = ""
+  id = -1
+  xpos = 0
+  ypos = 0
 
   public items: Item[] = [
 
   ]
 
-  initialHeldItems = 3
-  maxHeldItems = 5
+  initialHeldItems = 0
+  maxHeldItems = 0
 
   constructor() {}
 
   ngOnInit(): void {
-    this.initialHeldItems = this.settings.Items[0].amount
+    this.imageUrl = this.settings.image
+    this.id = this.settings.id
+    this.xpos = this.settings.xpos
+    this.ypos = this.settings.ypos
+
+    for(let i = 0; i < this.settings.slots.length; i++)
+    {
+      this.maxHeldItems += this.settings.slots[i].amount
+    }
+
+    for(let i = 0; i < this.settings.Items.length; i++)
+    {
+      this.initialHeldItems += this.settings.Items[i].amount
+    }
+
     for(let i = 0; i < this.initialHeldItems; i++)
     {
       this.items.push(new Item(this.items))
@@ -45,7 +63,6 @@ export class PuzzleBoardComponent implements OnInit {
     
     dist = (boardWidth - (itemWidth * this.items.length)) / (this.items.length)
 
-    console.info(dist/2)
     return dist/2
   }
 
